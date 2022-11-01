@@ -5,3 +5,6 @@ from Team 28
 ## This is a introduction to our project
 
 
+gem "minima"
+theme: minima
+$ bundle
