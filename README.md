@@ -9,8 +9,13 @@ Over the years, the company has collected basic bank details and gathered a lot 
 
  - Analysis(EDA):
 
+Q1:What is the relationship between age and credit score ?
+Q2:What is the relationship between annual income and credit score ?
+Q3:What is the relationship between installment amount and credit score ?
 
 
+ - Prediction(Machine Learning):
+Banks can predict with high accuracy whether or not one person is trustworthy with this model. Consequently, they can increase revenue and avoid potential losses.
 
 gem "minima"
 theme: minima
