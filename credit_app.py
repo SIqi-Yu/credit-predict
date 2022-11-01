@@ -3,11 +3,35 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
+st.set_page_config(
+    page_title="LUCY and 00",
+    page_icon="🎈",
+)
+
 plt.style.use('seaborn')
 
-st.title('Credit Score Analysis')
-df = pd.read_csv('train.csv')
+st.title('📊Credit Score Analysis')
 
+with st.expander("ℹ️ - About this app", expanded=True):
+
+    st.write(
+        """     
+-    Over the years, the company has collected basic bank details and gathered a lot of credit-related information. The management wants to build an intelligent system to segregate the people into credit score brackets to reduce the manual efforts.
+-   🤗It took 00 and me more than two weeks to finish analysis and prediction, it's a complicated dataset that worth digging!!!
+	    """
+    )
+
+    st.markdown("")
+
+st.markdown("")
+
+df = pd.read_csv('train.csv')
+st.title('Data Preview')
+# show data
+st.write(df.sample(10))
+
+st.title('EDA')
 # the outsanding debt
 st.header('Outstanding Debt')
 fig, ax = plt.subplots(figsize=(10,5),facecolor=(.18, .31, .31))
@@ -17,6 +41,7 @@ ax.set_ylabel('Number of People',color='peachpuff',)
 ax.set_xlabel('Outstanding Debt',color='peachpuff')
 ax.tick_params(labelcolor='tab:orange')
 st.pyplot(fig)
+
 
 
 
@@ -78,20 +103,13 @@ income_filter = st.slider('choose income:', 7005.93, 179987.28, 10000.00)  # min
 # filter by income
 df = df[df.Annual_Income >= income_filter]
 
-# filter by the occupation
+# filter by the paymant behavior
 Payment_Behaviour_filter = st.sidebar.multiselect(
     'choose the Payment_Behaviour',
     df.Payment_Behaviour.unique(), 
     df.Payment_Behaviour.unique()
 )
 df = df[df.Payment_Behaviour.isin(Payment_Behaviour_filter)]
-
-
-# filter by payment behavior
-
-
-# a radio button
-
 
 
 fig, ax = plt.subplots(figsize=(20,15))
