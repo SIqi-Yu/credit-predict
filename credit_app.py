@@ -116,13 +116,13 @@ st.pyplot(fig4)
 # filter
 st.sidebar.markdown("**First select the data range you want to analyze:** 👇")
 st.header('Histogram of the Annual Income')
-income_filter = st.slider('choose income:', 7005.93, 179987.28, 10000.00)  # min, max, default 滑块
+income_filter = st.sidebar.slider('choose income:', 7005.93, 179987.28, 10000.00)  # min, max, default 滑块
 
 
 
 ####occupation select
 df_o = np.append(df.Occupation.unique(),"ALL")
-default_occupation = st.siderbar.selectbox(
+default_occupation = st.sidebar.selectbox(
     "Select the occupation you want to explore or just explore all",
     (df_o)
 )
