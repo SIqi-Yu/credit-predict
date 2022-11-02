@@ -115,7 +115,7 @@ st.pyplot(fig2)
 #Outstanding_Debt: Represents the remaining debt to be paid (in USD)
 st.header('Distribution between age and Outstanding Debt')
 fig4, ax4 = plt.subplots(figsize=(10,5))
-sns.scatterplot(ax=ax4,x = 'Age',y = 'Outstanding_Debt',palette="ch:r=-.2,d=.3_r",)
+sns.scatterplot(data=df,ax=ax4,x = 'Age',y = 'Outstanding_Debt',palette="ch:r=-.2,d=.3_r",hue='Occupation', edgecolor=".7")
 #df.plot.scatter(ax=ax4,x = 'Age',y = 'Outstanding_Debt') # make explaination about sudden drop
 st.pyplot(fig4)
 
