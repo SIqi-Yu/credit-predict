@@ -122,6 +122,6 @@ df = df[df.Payment_Behaviour.isin(Payment_Behaviour_filter)]
 
 fig, ax = plt.subplots(figsize=(20,15))
 df.Credit_Score.hist(xlabelsize=30,ylabelsize=30)
-ax = sns.barplot(x="amount", y=df.Credit_Score, data=df.reset_index(), color = "#b80606")
+#ax = sns.barplot(x="amount", y=df.Credit_Score, data=df.reset_index(), color = "#b80606")
 st.pyplot(fig)
 
