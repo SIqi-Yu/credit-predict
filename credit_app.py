@@ -122,7 +122,7 @@ income_filter = st.slider('choose income:', 7005.93, 179987.28, 10000.00)  # min
 
 ####occupation select
 df_o = np.append(df.Occupation.unique(),"ALL")
-default_occupation = st.selectbox(
+default_occupation = st.siderbar.selectbox(
     "Select the occupation you want to explore or just explore all",
     (df_o)
 )
