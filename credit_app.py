@@ -19,6 +19,7 @@ with st.expander("ℹ️ - About this app", expanded=True):
         """     
 -    Over the years, the company has collected basic bank details and gathered a lot of credit-related information. The management wants to build an intelligent system to segregate the people into credit score brackets to reduce the manual efforts.
 -   🤗It took 00 and me more than two weeks to finish analysis and prediction, it's a complicated dataset that worth digging!!!
+-   You can find the source code in the [Credit Score Classification Clean Data](https://www.kaggle.com/datasets/clkmuhammed/creditscoreclassification)
 	    """
     )
 
@@ -30,6 +31,12 @@ df = pd.read_csv('train.csv')
 st.title('Data Preview')
 # show data
 st.write(df.sample(10))
+
+################
+### ANALYSIS ###
+################
+
+### DATA EXPLORER ###
 
 st.title('EDA')
 # the outsanding debt
@@ -95,7 +102,8 @@ df.plot.scatter(ax=ax4,x = 'Age',y = 'Outstanding_Debt') # make explaination abo
 st.pyplot(fig4)
 
 
-# fiilter
+# filter
+st.sidebar.markdown("**First select the data range you want to analyze:** 👇")
 st.header('Histogram of the Annual Income')
 income_filter = st.slider('choose income:', 7005.93, 179987.28, 10000.00)  # min, max, default 滑块
 
@@ -114,5 +122,6 @@ df = df[df.Payment_Behaviour.isin(Payment_Behaviour_filter)]
 
 fig, ax = plt.subplots(figsize=(20,15))
 df.Credit_Score.hist(xlabelsize=30,ylabelsize=30)
+ax = sns.barplot(x="amount", y=df.Credit_Score, data=df.reset_index(), color = "#b80606")
 st.pyplot(fig)
 
