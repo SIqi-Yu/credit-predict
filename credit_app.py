@@ -59,6 +59,8 @@ ax.tick_params(labelcolor='tab:orange')
 st.pyplot(fig)
 
 
+df.Annual_Income.hist(bins=500)
+st.pyplot()
 
 ###########################
 # age distribution#########
