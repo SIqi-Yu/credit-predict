@@ -58,9 +58,13 @@ ax.set_xlabel('Outstanding Debt',color='peachpuff')
 ax.tick_params(labelcolor='tab:orange')
 st.pyplot(fig)
 
+
+
+st.header('Annual Income')
 fig3, ax3 = plt.subplots(figsize=(10,5))
 df.Annual_Income.hist(ax=ax3,bins=500)
 st.pyplot(fig3)
+
 
 ###########################
 # age distribution#########
