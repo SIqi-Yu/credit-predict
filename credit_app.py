@@ -1,7 +1,9 @@
+from email.policy import default
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
 
 st.set_page_config(
@@ -39,7 +41,9 @@ st.write(df.sample(10))
 ### DATA EXPLORER ###
 
 st.title('EDA')
-# the outsanding debt
+######################
+# the outsanding debt#
+######################
 st.header('Outstanding Debt')
 fig, ax = plt.subplots(figsize=(10,5),facecolor=(.18, .31, .31))
 df.sort_values(by='Outstanding_Debt',ignore_index=True).Outstanding_Debt.plot(ax=ax,linestyle='dashed',color='black')
@@ -51,8 +55,9 @@ st.pyplot(fig)
 
 
 
-
-# age distribution
+###########################
+# age distribution#########
+###########################
 st.header('Age Distribution')
 age = {}
 x = 0
@@ -82,8 +87,9 @@ sns.barplot(data=age_groups, x='Age_range', y='Total_persons', palette='twilight
 sns.pointplot(data=age_groups, x='Age_range', y='Total_persons', color=(.18, .31, .31))
 st.pyplot(fig1)
 
-
-#installment amount and credit score
+#####################################
+#installment amount and credit score#
+#####################################
 st.header('installment amount and credit score')
 df1 = df.drop(df[df['Payment_of_Min_Amount'].str.contains('NM',na=False)].index)
 df2 = df1.groupby('Credit_Score').Payment_of_Min_Amount.value_counts(normalize=True)
@@ -108,6 +114,17 @@ st.header('Histogram of the Annual Income')
 income_filter = st.slider('choose income:', 7005.93, 179987.28, 10000.00)  # min, max, default 滑块
 
 
+
+####occupation select
+df_o = np.append(df.Occupation.unique(),"ALL")
+default_occupation = st.selectbox(
+    "Select the occupation you want to explore or just explore all",
+    (df_o)
+)
+if default_occupation!="ALL":
+    df = df[df.Occupation == default_occupation]
+
+
 # filter by income
 df = df[df.Annual_Income >= income_filter]
 
@@ -120,8 +137,8 @@ Payment_Behaviour_filter = st.sidebar.multiselect(
 df = df[df.Payment_Behaviour.isin(Payment_Behaviour_filter)]
 
 
-fig, ax = plt.subplots(figsize=(20,15))
+fig, ax = plt.subplots(figsize=(15,10))
 df.Credit_Score.hist(xlabelsize=30,ylabelsize=30)
-#ax = sns.barplot(x="amount", y=df.Credit_Score, data=df.reset_index(), color = "#b80606")
+#ax = sns.barplot(x=['Good','Bad','Poor'], y=df.Credit_Score, data=df.reset_index(), color = "#b80606")
 st.pyplot(fig)
 
