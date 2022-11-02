@@ -15,6 +15,11 @@ plt.style.use('seaborn')
 
 st.title('📊Credit Score Analysis')
 
+from PIL import Image
+image = Image.open('1.jpg')
+
+st.image(image)
+
 with st.expander("ℹ️ - About this app", expanded=True):
 
     st.write(
