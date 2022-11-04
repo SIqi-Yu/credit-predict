@@ -25,7 +25,7 @@ with st.expander("ℹ️ - About this app", expanded=True):
     st.write(
         """     
 -    Over the years, the company has collected basic bank details and gathered a lot of credit-related information. The management wants to build an intelligent system to segregate the people into credit score brackets to reduce the manual efforts.
--   🤗It took 00 and me more than two weeks to finish analysis and prediction, it's a complicated dataset that worth digging!!!
+-   🤗It took 00 and Lucy more than two weeks to finish analysis and prediction, it's a complicated dataset that worth digging!!!
 -   You can find the source code in the [Credit Score Classification Clean Data](https://www.kaggle.com/datasets/clkmuhammed/creditscoreclassification)
 	    """
     )
