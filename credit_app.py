@@ -62,6 +62,7 @@ st.pyplot(fig)
 
 st.header('Annual Income')
 fig3, ax3 = plt.subplots(figsize=(10,5))
+sns.countplot(df,x='Annual_Income')
 df.Annual_Income.hist(ax=ax3,bins=500)
 st.pyplot(fig3)
 
@@ -150,7 +151,7 @@ df = df[df.Payment_Behaviour.isin(Payment_Behaviour_filter)]
 
 
 fig, ax = plt.subplots(figsize=(15,10))
-df.Credit_Score.hist(xlabelsize=25,ylabelsize=25)
-#ax = sns.barplot(x=['Good','Bad','Poor'], y=df.Credit_Score, data=df.reset_index(), color = "#b80606")
+#df.Credit_Score.hist(xlabelsize=25,ylabelsize=25)
+#ax = sns.countplot(y='Credit_Score', data=df, color = "#b80606")
+sns.countplot(ax=ax,y='Credit_Score', data=df,palette='crest')
 st.pyplot(fig)
-
