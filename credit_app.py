@@ -155,3 +155,5 @@ fig, ax = plt.subplots(figsize=(10,10))
 #ax = sns.countplot(y='Credit_Score', data=df, color = "#b80606")
 sns.countplot(ax=ax,y='Credit_Score', data=df,palette='crest')
 st.pyplot(fig)
+
+
