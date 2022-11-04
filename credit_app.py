@@ -62,7 +62,7 @@ st.pyplot(fig)
 
 st.header('Annual Income')
 fig3, ax3 = plt.subplots(figsize=(10,5))
-sns.countplot(df,x='Annual_Income')
+#sns.countplot(df,x='Annual_Income')
 df.Annual_Income.hist(ax=ax3,bins=500)
 st.pyplot(fig3)
 
